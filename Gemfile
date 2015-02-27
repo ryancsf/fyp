@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'rails_admin'
 gem 'devise'
 gem 'will_paginate'
 gem 'thin'
