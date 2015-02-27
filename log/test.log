@@ -1,0 +1,1080 @@
+  [1m[36m (1.1ms)[0m  [1mCREATE TABLE "companies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "company_id" integer, "default_rate" integer, "created_at" datetime, "updated_at" datetime, "slug" varchar(255), "user_id" integer) 
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "fname" varchar(255), "lname" varchar(255), "company_id" integer, "created_at" datetime, "updated_at" datetime, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255)) [0m
+  [1m[35m (0.6ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.6ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "works" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "project_id" integer, "user_id" integer, "datetimeperformed" datetime, "created_at" datetime, "updated_at" datetime, "hours" integer, "doc" varchar(255)) 
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140109183803')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131211230943')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131211231713')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131211231725')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131211231734')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131221222519')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131229151636')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140107232606')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140107233020')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140108204748')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36m (2.6ms)[0m  [1mCREATE TABLE "companies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "company_id" integer, "default_rate" integer, "created_at" datetime, "updated_at" datetime, "slug" varchar(255), "user_id" integer) 
+  [1m[36m (1.1ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "fname" varchar(255), "lname" varchar(255), "company_id" integer, "created_at" datetime, "updated_at" datetime, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255)) [0m
+  [1m[35m (1.1ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.9ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (1.1ms)[0m  CREATE TABLE "works" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "project_id" integer, "user_id" integer, "datetimeperformed" datetime, "created_at" datetime, "updated_at" datetime, "hours" integer, "doc" varchar(255)) 
+  [1m[36m (1.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.9ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140109183803')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131211230943')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131211231713')
+  [1m[36m (1.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131211231725')[0m
+  [1m[35m (0.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131211231734')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131221222519')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131229151636')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140107232606')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140107233020')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140108204748')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "companies"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('Bentley Hoke', '2014-01-11 01:25:46', '2014-01-11 01:25:46', 242211569)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('Client Inc.', '2014-01-11 01:25:46', '2014-01-11 01:25:46', 673772394)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('ABC, Ltd.', '2014-01-11 01:25:46', '2014-01-11 01:25:46', 944384622)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "default_rate", "slug", "created_at", "updated_at", "id", "company_id", "user_id") VALUES ('Project XYZ', 60, 'project-xyz', '2014-01-11 01:25:46', '2014-01-11 01:25:46', 463626445, 673772394, 128271312)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "projects" ("name", "default_rate", "slug", "created_at", "updated_at", "id", "company_id", "user_id") VALUES ('Second Proj', 125, 'second-proj', '2014-01-11 01:25:46', '2014-01-11 01:25:46', 647910780, 944384622, 128271312)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("fname", "lname", "email", "encrypted_password", "created_at", "updated_at", "id", "company_id") VALUES ('Brian', 'Hoke', 'bhoke@bentleyhoke.com', '$2a$04$IZp4TdnxlGkdJyNu0MxyReIEVMJzwdGiBawhKnkErQpdXAqFtvDtS', '2014-01-11 01:25:46', '2014-01-11 01:25:46', 128271312, 242211569)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("fname", "lname", "email", "created_at", "updated_at", "id", "company_id") VALUES ('Jane', 'Doe', 'jdoe@example.com', '2014-01-11 01:25:46', '2014-01-11 01:25:46', 194731895, 242211569)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("fname", "lname", "email", "created_at", "updated_at", "id", "company_id") VALUES ('Ralph', 'Martinez', 'rmartin@example.com', '2014-01-11 01:25:46', '2014-01-11 01:25:46', 767380590, 673772394)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "works"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-11 01:25:46.000000', 1, '2014-01-11 01:25:46', '2014-01-11 01:25:46', 583614887, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-10 01:25:46.000000', 2, '2014-01-11 01:25:46', '2014-01-11 01:25:46', 365850930, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-09 01:25:46.000000', 3, '2014-01-11 01:25:46', '2014-01-11 01:25:46', 214376590, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-08 01:25:46.000000', 4, '2014-01-11 01:25:46', '2014-01-11 01:25:46', 1002442783, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-07 01:25:46.000000', 5, '2014-01-11 01:25:46', '2014-01-11 01:25:46', 631539134, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-06 01:25:46.000000', 6, '2014-01-11 01:25:46', '2014-01-11 01:25:46', 312718633, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-05 01:25:46.000000', 7, '2014-01-11 01:25:46', '2014-01-11 01:25:46', 195749013, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-04 01:25:46.000000', 8, '2014-01-11 01:25:46', '2014-01-11 01:25:46', 1018024966, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-03 01:25:46.000000', 1, '2014-01-11 01:25:46', '2014-01-11 01:25:46', 739428757, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-02 01:25:46.000000', 2, '2014-01-11 01:25:46', '2014-01-11 01:25:46', 454424836, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-01 01:25:46.000000', 3, '2014-01-11 01:25:46', '2014-01-11 01:25:46', 626004332, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-31 01:25:46.000000', 4, '2014-01-11 01:25:46', '2014-01-11 01:25:46', 307700223, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-30 01:25:46.000000', 5, '2014-01-11 01:25:46', '2014-01-11 01:25:46', 190738503, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-29 01:25:46.000000', 6, '2014-01-11 01:25:46', '2014-01-11 01:25:46', 1012482256, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-28 01:25:46.000000', 7, '2014-01-11 01:25:46', '2014-01-11 01:25:46', 574477685, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-27 01:25:46.000000', 8, '2014-01-11 01:25:46', '2014-01-11 01:25:46', 356181480, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-26 01:25:46.000000', 1, '2014-01-11 01:25:46', '2014-01-11 01:25:46', 204715104, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-25 01:25:46.000000', 2, '2014-01-11 01:25:46', '2014-01-11 01:25:46', 993297609, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-24 01:25:46.000000', 3, '2014-01-11 01:25:46', '2014-01-11 01:25:46', 730569050, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-23 01:25:46.000000', 4, '2014-01-11 01:25:46', '2014-01-11 01:25:46', 478980561, 647910780, 194731895)
+  [1m[36m (2.5ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+-----------------------------------------------------------
+WorkTest: test_work_should_not_save_with_no_associated_user
+-----------------------------------------------------------
+  [1m[36mWork Load (0.3ms)[0m  [1mSELECT "works".* FROM "works" ORDER BY "works"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (1.7ms)[0m  [1mCREATE TABLE "companies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (3.6ms)[0m  CREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "company_id" integer, "default_rate" integer, "created_at" datetime, "updated_at" datetime, "slug" varchar(255), "user_id" integer) 
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "fname" varchar(255), "lname" varchar(255), "company_id" integer, "created_at" datetime, "updated_at" datetime, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255)) [0m
+  [1m[35m (0.6ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.9ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "works" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "project_id" integer, "user_id" integer, "datetimeperformed" datetime, "created_at" datetime, "updated_at" datetime, "hours" integer, "doc" varchar(255)) 
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140109183803')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131211230943')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131211231713')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131211231725')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131211231734')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131221222519')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131229151636')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140107232606')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140107233020')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140108204748')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "companies"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('Bentley Hoke', '2014-01-11 01:26:33', '2014-01-11 01:26:33', 242211569)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('Client Inc.', '2014-01-11 01:26:33', '2014-01-11 01:26:33', 673772394)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('ABC, Ltd.', '2014-01-11 01:26:33', '2014-01-11 01:26:33', 944384622)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "default_rate", "slug", "created_at", "updated_at", "id", "company_id", "user_id") VALUES ('Project XYZ', 60, 'project-xyz', '2014-01-11 01:26:33', '2014-01-11 01:26:33', 463626445, 673772394, 128271312)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "projects" ("name", "default_rate", "slug", "created_at", "updated_at", "id", "company_id", "user_id") VALUES ('Second Proj', 125, 'second-proj', '2014-01-11 01:26:33', '2014-01-11 01:26:33', 647910780, 944384622, 128271312)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("fname", "lname", "email", "encrypted_password", "created_at", "updated_at", "id", "company_id") VALUES ('Brian', 'Hoke', 'bhoke@bentleyhoke.com', '$2a$04$wCDxFDktJrVW/mVQoJXF5.3.mhetSkquZdNsOU/tGYypVr7mRCwBi', '2014-01-11 01:26:33', '2014-01-11 01:26:33', 128271312, 242211569)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("fname", "lname", "email", "created_at", "updated_at", "id", "company_id") VALUES ('Jane', 'Doe', 'jdoe@example.com', '2014-01-11 01:26:33', '2014-01-11 01:26:33', 194731895, 242211569)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("fname", "lname", "email", "created_at", "updated_at", "id", "company_id") VALUES ('Ralph', 'Martinez', 'rmartin@example.com', '2014-01-11 01:26:33', '2014-01-11 01:26:33', 767380590, 673772394)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "works"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-11 01:26:33.000000', 1, '2014-01-11 01:26:33', '2014-01-11 01:26:33', 583614887, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-10 01:26:33.000000', 2, '2014-01-11 01:26:33', '2014-01-11 01:26:33', 365850930, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-09 01:26:33.000000', 3, '2014-01-11 01:26:33', '2014-01-11 01:26:33', 214376590, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-08 01:26:33.000000', 4, '2014-01-11 01:26:33', '2014-01-11 01:26:33', 1002442783, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-07 01:26:33.000000', 5, '2014-01-11 01:26:33', '2014-01-11 01:26:33', 631539134, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-06 01:26:33.000000', 6, '2014-01-11 01:26:33', '2014-01-11 01:26:33', 312718633, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-05 01:26:33.000000', 7, '2014-01-11 01:26:33', '2014-01-11 01:26:33', 195749013, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-04 01:26:33.000000', 8, '2014-01-11 01:26:33', '2014-01-11 01:26:33', 1018024966, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-03 01:26:33.000000', 1, '2014-01-11 01:26:33', '2014-01-11 01:26:33', 739428757, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-02 01:26:33.000000', 2, '2014-01-11 01:26:33', '2014-01-11 01:26:33', 454424836, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-01 01:26:33.000000', 3, '2014-01-11 01:26:33', '2014-01-11 01:26:33', 626004332, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-31 01:26:33.000000', 4, '2014-01-11 01:26:33', '2014-01-11 01:26:33', 307700223, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-30 01:26:33.000000', 5, '2014-01-11 01:26:33', '2014-01-11 01:26:33', 190738503, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-29 01:26:33.000000', 6, '2014-01-11 01:26:33', '2014-01-11 01:26:33', 1012482256, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-28 01:26:33.000000', 7, '2014-01-11 01:26:33', '2014-01-11 01:26:33', 574477685, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-27 01:26:33.000000', 8, '2014-01-11 01:26:33', '2014-01-11 01:26:33', 356181480, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-26 01:26:33.000000', 1, '2014-01-11 01:26:33', '2014-01-11 01:26:33', 204715104, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-25 01:26:33.000000', 2, '2014-01-11 01:26:33', '2014-01-11 01:26:33', 993297609, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-24 01:26:33.000000', 3, '2014-01-11 01:26:33', '2014-01-11 01:26:33', 730569050, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-23 01:26:33.000000', 4, '2014-01-11 01:26:33', '2014-01-11 01:26:33', 478980561, 647910780, 194731895)
+  [1m[36m (0.7ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------------------
+WorkTest: test_work_should_not_save_with_no_associated_user
+-----------------------------------------------------------
+  [1m[36mWork Load (0.3ms)[0m  [1mSELECT "works".* FROM "works" ORDER BY "works"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (1.2ms)[0m  [1mCREATE TABLE "companies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "company_id" integer, "default_rate" integer, "created_at" datetime, "updated_at" datetime, "slug" varchar(255), "user_id" integer) 
+  [1m[36m (1.5ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "fname" varchar(255), "lname" varchar(255), "company_id" integer, "created_at" datetime, "updated_at" datetime, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255)) [0m
+  [1m[35m (1.5ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (1.0ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "works" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "project_id" integer, "user_id" integer, "datetimeperformed" datetime, "created_at" datetime, "updated_at" datetime, "hours" integer, "doc" varchar(255)) 
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140109183803')
+  [1m[36m (1.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131211230943')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131211231713')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131211231725')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131211231734')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131221222519')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131229151636')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140107232606')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140107233020')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140108204748')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "companies"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('Bentley Hoke', '2014-01-11 01:26:47', '2014-01-11 01:26:47', 242211569)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('Client Inc.', '2014-01-11 01:26:47', '2014-01-11 01:26:47', 673772394)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('ABC, Ltd.', '2014-01-11 01:26:47', '2014-01-11 01:26:47', 944384622)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "default_rate", "slug", "created_at", "updated_at", "id", "company_id", "user_id") VALUES ('Project XYZ', 60, 'project-xyz', '2014-01-11 01:26:47', '2014-01-11 01:26:47', 463626445, 673772394, 128271312)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "projects" ("name", "default_rate", "slug", "created_at", "updated_at", "id", "company_id", "user_id") VALUES ('Second Proj', 125, 'second-proj', '2014-01-11 01:26:47', '2014-01-11 01:26:47', 647910780, 944384622, 128271312)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("fname", "lname", "email", "encrypted_password", "created_at", "updated_at", "id", "company_id") VALUES ('Brian', 'Hoke', 'bhoke@bentleyhoke.com', '$2a$04$aAVYTSuy6GdYM9AGUvvzZOAhkHwlSy5TznuQtu6jlRZK3CWNF2ZkC', '2014-01-11 01:26:47', '2014-01-11 01:26:47', 128271312, 242211569)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("fname", "lname", "email", "created_at", "updated_at", "id", "company_id") VALUES ('Jane', 'Doe', 'jdoe@example.com', '2014-01-11 01:26:47', '2014-01-11 01:26:47', 194731895, 242211569)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("fname", "lname", "email", "created_at", "updated_at", "id", "company_id") VALUES ('Ralph', 'Martinez', 'rmartin@example.com', '2014-01-11 01:26:47', '2014-01-11 01:26:47', 767380590, 673772394)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "works"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-11 01:26:47.000000', 1, '2014-01-11 01:26:47', '2014-01-11 01:26:47', 583614887, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-10 01:26:47.000000', 2, '2014-01-11 01:26:47', '2014-01-11 01:26:47', 365850930, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-09 01:26:47.000000', 3, '2014-01-11 01:26:47', '2014-01-11 01:26:47', 214376590, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-08 01:26:47.000000', 4, '2014-01-11 01:26:47', '2014-01-11 01:26:47', 1002442783, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-07 01:26:47.000000', 5, '2014-01-11 01:26:47', '2014-01-11 01:26:47', 631539134, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-06 01:26:47.000000', 6, '2014-01-11 01:26:47', '2014-01-11 01:26:47', 312718633, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-05 01:26:47.000000', 7, '2014-01-11 01:26:47', '2014-01-11 01:26:47', 195749013, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-04 01:26:47.000000', 8, '2014-01-11 01:26:47', '2014-01-11 01:26:47', 1018024966, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-03 01:26:47.000000', 1, '2014-01-11 01:26:47', '2014-01-11 01:26:47', 739428757, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-02 01:26:47.000000', 2, '2014-01-11 01:26:47', '2014-01-11 01:26:47', 454424836, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-01 01:26:47.000000', 3, '2014-01-11 01:26:47', '2014-01-11 01:26:47', 626004332, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-31 01:26:47.000000', 4, '2014-01-11 01:26:47', '2014-01-11 01:26:47', 307700223, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-30 01:26:47.000000', 5, '2014-01-11 01:26:47', '2014-01-11 01:26:47', 190738503, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-29 01:26:47.000000', 6, '2014-01-11 01:26:47', '2014-01-11 01:26:47', 1012482256, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-28 01:26:47.000000', 7, '2014-01-11 01:26:47', '2014-01-11 01:26:47', 574477685, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-27 01:26:47.000000', 8, '2014-01-11 01:26:47', '2014-01-11 01:26:47', 356181480, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-26 01:26:47.000000', 1, '2014-01-11 01:26:47', '2014-01-11 01:26:47', 204715104, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-25 01:26:47.000000', 2, '2014-01-11 01:26:47', '2014-01-11 01:26:47', 993297609, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-24 01:26:47.000000', 3, '2014-01-11 01:26:47', '2014-01-11 01:26:47', 730569050, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-23 01:26:47.000000', 4, '2014-01-11 01:26:47', '2014-01-11 01:26:47', 478980561, 647910780, 194731895)
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------------------
+WorkTest: test_work_should_not_save_with_no_associated_user
+-----------------------------------------------------------
+  [1m[36mWork Load (0.3ms)[0m  [1mSELECT "works".* FROM "works" ORDER BY "works"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (1.6ms)[0m  [1mCREATE TABLE "companies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "company_id" integer, "default_rate" integer, "created_at" datetime, "updated_at" datetime, "slug" varchar(255), "user_id" integer) 
+  [1m[36m (1.1ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "fname" varchar(255), "lname" varchar(255), "company_id" integer, "created_at" datetime, "updated_at" datetime, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255)) [0m
+  [1m[35m (1.0ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.8ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "works" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "project_id" integer, "user_id" integer, "datetimeperformed" datetime, "created_at" datetime, "updated_at" datetime, "hours" integer, "doc" varchar(255)) 
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.9ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.2ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140109183803')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131211230943')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131211231713')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131211231725')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131211231734')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131221222519')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131229151636')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140107232606')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140107233020')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140108204748')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "companies"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('Bentley Hoke', '2014-01-11 01:28:47', '2014-01-11 01:28:47', 242211569)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('Client Inc.', '2014-01-11 01:28:47', '2014-01-11 01:28:47', 673772394)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('ABC, Ltd.', '2014-01-11 01:28:47', '2014-01-11 01:28:47', 944384622)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "default_rate", "slug", "created_at", "updated_at", "id", "company_id", "user_id") VALUES ('Project XYZ', 60, 'project-xyz', '2014-01-11 01:28:47', '2014-01-11 01:28:47', 463626445, 673772394, 128271312)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "projects" ("name", "default_rate", "slug", "created_at", "updated_at", "id", "company_id", "user_id") VALUES ('Second Proj', 125, 'second-proj', '2014-01-11 01:28:47', '2014-01-11 01:28:47', 647910780, 944384622, 128271312)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("fname", "lname", "email", "encrypted_password", "created_at", "updated_at", "id", "company_id") VALUES ('Brian', 'Hoke', 'bhoke@bentleyhoke.com', '$2a$04$3vIZQUsoX0/PyPph/efnTOP8QxrA978EJUqjK9.3kh9ueRO/xzE7.', '2014-01-11 01:28:47', '2014-01-11 01:28:47', 128271312, 242211569)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("fname", "lname", "email", "created_at", "updated_at", "id", "company_id") VALUES ('Jane', 'Doe', 'jdoe@example.com', '2014-01-11 01:28:47', '2014-01-11 01:28:47', 194731895, 242211569)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("fname", "lname", "email", "created_at", "updated_at", "id", "company_id") VALUES ('Ralph', 'Martinez', 'rmartin@example.com', '2014-01-11 01:28:47', '2014-01-11 01:28:47', 767380590, 673772394)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "works"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-11 01:28:47.000000', 1, '2014-01-11 01:28:47', '2014-01-11 01:28:47', 583614887, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-10 01:28:47.000000', 2, '2014-01-11 01:28:47', '2014-01-11 01:28:47', 365850930, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-09 01:28:47.000000', 3, '2014-01-11 01:28:47', '2014-01-11 01:28:47', 214376590, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-08 01:28:47.000000', 4, '2014-01-11 01:28:47', '2014-01-11 01:28:47', 1002442783, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-07 01:28:47.000000', 5, '2014-01-11 01:28:47', '2014-01-11 01:28:47', 631539134, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-06 01:28:47.000000', 6, '2014-01-11 01:28:47', '2014-01-11 01:28:47', 312718633, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-05 01:28:47.000000', 7, '2014-01-11 01:28:47', '2014-01-11 01:28:47', 195749013, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-04 01:28:47.000000', 8, '2014-01-11 01:28:47', '2014-01-11 01:28:47', 1018024966, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-03 01:28:47.000000', 1, '2014-01-11 01:28:47', '2014-01-11 01:28:47', 739428757, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-02 01:28:47.000000', 2, '2014-01-11 01:28:47', '2014-01-11 01:28:47', 454424836, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-01 01:28:47.000000', 3, '2014-01-11 01:28:47', '2014-01-11 01:28:47', 626004332, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-31 01:28:47.000000', 4, '2014-01-11 01:28:47', '2014-01-11 01:28:47', 307700223, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-30 01:28:47.000000', 5, '2014-01-11 01:28:47', '2014-01-11 01:28:47', 190738503, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-29 01:28:47.000000', 6, '2014-01-11 01:28:47', '2014-01-11 01:28:47', 1012482256, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-28 01:28:47.000000', 7, '2014-01-11 01:28:47', '2014-01-11 01:28:47', 574477685, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-27 01:28:47.000000', 8, '2014-01-11 01:28:47', '2014-01-11 01:28:47', 356181480, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-26 01:28:47.000000', 1, '2014-01-11 01:28:47', '2014-01-11 01:28:47', 204715104, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-25 01:28:47.000000', 2, '2014-01-11 01:28:47', '2014-01-11 01:28:47', 993297609, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-24 01:28:47.000000', 3, '2014-01-11 01:28:47', '2014-01-11 01:28:47', 730569050, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-23 01:28:47.000000', 4, '2014-01-11 01:28:47', '2014-01-11 01:28:47', 478980561, 647910780, 194731895)
+  [1m[36m (2.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+------------------------------------------------------------
+WorkTest: test_datetimeperformed_should_not_be_in_the_future
+------------------------------------------------------------
+  [1m[36mWork Load (0.2ms)[0m  [1mSELECT "works".* FROM "works" ORDER BY "works"."id" ASC LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+-----------------------------------------------------------
+WorkTest: test_work_should_not_save_with_no_associated_user
+-----------------------------------------------------------
+  [1m[35mWork Load (0.2ms)[0m  SELECT "works".* FROM "works" ORDER BY "works"."id" ASC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36m (9.9ms)[0m  [1mCREATE TABLE "companies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "company_id" integer, "default_rate" integer, "created_at" datetime, "updated_at" datetime, "slug" varchar(255), "user_id" integer) 
+  [1m[36m (1.2ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "fname" varchar(255), "lname" varchar(255), "company_id" integer, "created_at" datetime, "updated_at" datetime, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255)) [0m
+  [1m[35m (0.8ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (1.4ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "works" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "project_id" integer, "user_id" integer, "datetimeperformed" datetime, "created_at" datetime, "updated_at" datetime, "hours" integer, "doc" varchar(255)) 
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140109183803')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131211230943')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131211231713')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131211231725')[0m
+  [1m[35m (0.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131211231734')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131221222519')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131229151636')
+  [1m[36m (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140107232606')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140107233020')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140108204748')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "companies"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('Bentley Hoke', '2014-01-11 01:39:26', '2014-01-11 01:39:26', 242211569)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('Client Inc.', '2014-01-11 01:39:26', '2014-01-11 01:39:26', 673772394)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('ABC, Ltd.', '2014-01-11 01:39:26', '2014-01-11 01:39:26', 944384622)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "default_rate", "slug", "created_at", "updated_at", "id", "company_id", "user_id") VALUES ('Project XYZ', 60, 'project-xyz', '2014-01-11 01:39:26', '2014-01-11 01:39:26', 463626445, 673772394, 128271312)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "projects" ("name", "default_rate", "slug", "created_at", "updated_at", "id", "company_id", "user_id") VALUES ('Second Proj', 125, 'second-proj', '2014-01-11 01:39:26', '2014-01-11 01:39:26', 647910780, 944384622, 128271312)[0m
+  [1m[35mFixture Delete (0.3ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "users" ("fname", "lname", "email", "encrypted_password", "created_at", "updated_at", "id", "company_id") VALUES ('Brian', 'Hoke', 'bhoke@bentleyhoke.com', '$2a$04$YOmoUuLqltLLXVdMnKNnX.MolRtJ2Lg11c0Js6kaO1FqD7LBP0.qa', '2014-01-11 01:39:26', '2014-01-11 01:39:26', 128271312, 242211569)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "users" ("fname", "lname", "email", "created_at", "updated_at", "id", "company_id") VALUES ('Jane', 'Doe', 'jdoe@example.com', '2014-01-11 01:39:26', '2014-01-11 01:39:26', 194731895, 242211569)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("fname", "lname", "email", "created_at", "updated_at", "id", "company_id") VALUES ('Ralph', 'Martinez', 'rmartin@example.com', '2014-01-11 01:39:26', '2014-01-11 01:39:26', 767380590, 673772394)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "works"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-11 01:39:26.000000', 1, '2014-01-11 01:39:26', '2014-01-11 01:39:26', 583614887, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-10 01:39:26.000000', 2, '2014-01-11 01:39:26', '2014-01-11 01:39:26', 365850930, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-09 01:39:26.000000', 3, '2014-01-11 01:39:26', '2014-01-11 01:39:26', 214376590, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-08 01:39:26.000000', 4, '2014-01-11 01:39:26', '2014-01-11 01:39:26', 1002442783, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-07 01:39:26.000000', 5, '2014-01-11 01:39:26', '2014-01-11 01:39:26', 631539134, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-06 01:39:26.000000', 6, '2014-01-11 01:39:26', '2014-01-11 01:39:26', 312718633, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-05 01:39:26.000000', 7, '2014-01-11 01:39:26', '2014-01-11 01:39:26', 195749013, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-04 01:39:26.000000', 8, '2014-01-11 01:39:26', '2014-01-11 01:39:26', 1018024966, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-03 01:39:26.000000', 1, '2014-01-11 01:39:26', '2014-01-11 01:39:26', 739428757, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-02 01:39:26.000000', 2, '2014-01-11 01:39:26', '2014-01-11 01:39:26', 454424836, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-01 01:39:26.000000', 3, '2014-01-11 01:39:26', '2014-01-11 01:39:26', 626004332, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-31 01:39:26.000000', 4, '2014-01-11 01:39:26', '2014-01-11 01:39:26', 307700223, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-30 01:39:26.000000', 5, '2014-01-11 01:39:26', '2014-01-11 01:39:26', 190738503, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-29 01:39:26.000000', 6, '2014-01-11 01:39:26', '2014-01-11 01:39:26', 1012482256, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-28 01:39:26.000000', 7, '2014-01-11 01:39:26', '2014-01-11 01:39:26', 574477685, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-27 01:39:26.000000', 8, '2014-01-11 01:39:26', '2014-01-11 01:39:26', 356181480, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-26 01:39:26.000000', 1, '2014-01-11 01:39:26', '2014-01-11 01:39:26', 204715104, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-25 01:39:26.000000', 2, '2014-01-11 01:39:26', '2014-01-11 01:39:26', 993297609, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-24 01:39:26.000000', 3, '2014-01-11 01:39:26', '2014-01-11 01:39:26', 730569050, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-23 01:39:26.000000', 4, '2014-01-11 01:39:26', '2014-01-11 01:39:26', 478980561, 647910780, 194731895)
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------
+CompaniesControllerTest: test_should_get_index
+----------------------------------------------
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/_company.html.erb (3.2ms)
+  Rendered companies/_sidebar.html.erb (0.9ms)
+  Rendered companies/index.html.erb within layouts/application (24.0ms)
+Completed 500 Internal Server Error in 1112ms
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (2.4ms)[0m  [1mCREATE TABLE "companies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "company_id" integer, "default_rate" integer, "created_at" datetime, "updated_at" datetime, "slug" varchar(255), "user_id" integer) 
+  [1m[36m (1.1ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "fname" varchar(255), "lname" varchar(255), "company_id" integer, "created_at" datetime, "updated_at" datetime, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255)) [0m
+  [1m[35m (0.5ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.6ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (1.4ms)[0m  CREATE TABLE "works" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "project_id" integer, "user_id" integer, "datetimeperformed" datetime, "created_at" datetime, "updated_at" datetime, "hours" integer, "doc" varchar(255)) 
+  [1m[36m (1.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (1.4ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.3ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (2.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140109183803')
+  [1m[36m (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131211230943')[0m
+  [1m[35m (2.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131211231713')
+  [1m[36m (1.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131211231725')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131211231734')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131221222519')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131229151636')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140107232606')[0m
+  [1m[35m (1.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140107233020')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140108204748')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "companies"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('Bentley Hoke', '2014-01-11 01:40:44', '2014-01-11 01:40:44', 242211569)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('Client Inc.', '2014-01-11 01:40:44', '2014-01-11 01:40:44', 673772394)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('ABC, Ltd.', '2014-01-11 01:40:44', '2014-01-11 01:40:44', 944384622)
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "projects" ("name", "default_rate", "slug", "created_at", "updated_at", "id", "company_id", "user_id") VALUES ('Project XYZ', 60, 'project-xyz', '2014-01-11 01:40:44', '2014-01-11 01:40:44', 463626445, 673772394, 128271312)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO "projects" ("name", "default_rate", "slug", "created_at", "updated_at", "id", "company_id", "user_id") VALUES ('Second Proj', 125, 'second-proj', '2014-01-11 01:40:44', '2014-01-11 01:40:44', 647910780, 944384622, 128271312)[0m
+  [1m[35mFixture Delete (0.2ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("fname", "lname", "email", "encrypted_password", "created_at", "updated_at", "id", "company_id") VALUES ('Brian', 'Hoke', 'bhoke@bentleyhoke.com', '$2a$04$ey0g6svf7ZcV0ynBU6vx2uzLl/UaxtQNeEEzCqo0xdqlBc0O7KiQC', '2014-01-11 01:40:44', '2014-01-11 01:40:44', 128271312, 242211569)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("fname", "lname", "email", "created_at", "updated_at", "id", "company_id") VALUES ('Jane', 'Doe', 'jdoe@example.com', '2014-01-11 01:40:44', '2014-01-11 01:40:44', 194731895, 242211569)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("fname", "lname", "email", "created_at", "updated_at", "id", "company_id") VALUES ('Ralph', 'Martinez', 'rmartin@example.com', '2014-01-11 01:40:44', '2014-01-11 01:40:44', 767380590, 673772394)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "works"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-11 01:40:44.000000', 1, '2014-01-11 01:40:44', '2014-01-11 01:40:44', 583614887, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-10 01:40:44.000000', 2, '2014-01-11 01:40:44', '2014-01-11 01:40:44', 365850930, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-09 01:40:44.000000', 3, '2014-01-11 01:40:44', '2014-01-11 01:40:44', 214376590, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-08 01:40:44.000000', 4, '2014-01-11 01:40:44', '2014-01-11 01:40:44', 1002442783, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-07 01:40:44.000000', 5, '2014-01-11 01:40:44', '2014-01-11 01:40:44', 631539134, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-06 01:40:44.000000', 6, '2014-01-11 01:40:44', '2014-01-11 01:40:44', 312718633, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-05 01:40:44.000000', 7, '2014-01-11 01:40:44', '2014-01-11 01:40:44', 195749013, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-04 01:40:44.000000', 8, '2014-01-11 01:40:44', '2014-01-11 01:40:44', 1018024966, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-03 01:40:44.000000', 1, '2014-01-11 01:40:44', '2014-01-11 01:40:44', 739428757, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-02 01:40:44.000000', 2, '2014-01-11 01:40:44', '2014-01-11 01:40:44', 454424836, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-01 01:40:44.000000', 3, '2014-01-11 01:40:44', '2014-01-11 01:40:44', 626004332, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-31 01:40:44.000000', 4, '2014-01-11 01:40:44', '2014-01-11 01:40:44', 307700223, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-30 01:40:44.000000', 5, '2014-01-11 01:40:44', '2014-01-11 01:40:44', 190738503, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-29 01:40:44.000000', 6, '2014-01-11 01:40:44', '2014-01-11 01:40:44', 1012482256, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-28 01:40:44.000000', 7, '2014-01-11 01:40:44', '2014-01-11 01:40:44', 574477685, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-27 01:40:44.000000', 8, '2014-01-11 01:40:44', '2014-01-11 01:40:44', 356181480, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-26 01:40:44.000000', 1, '2014-01-11 01:40:44', '2014-01-11 01:40:44', 204715104, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-25 01:40:44.000000', 2, '2014-01-11 01:40:44', '2014-01-11 01:40:44', 993297609, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-24 01:40:44.000000', 3, '2014-01-11 01:40:44', '2014-01-11 01:40:44', 730569050, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-23 01:40:44.000000', 4, '2014-01-11 01:40:44', '2014-01-11 01:40:44', 478980561, 647910780, 194731895)
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------
+CompaniesControllerTest: test_should_get_index
+----------------------------------------------
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/_company.html.erb (2.3ms)
+  Rendered companies/_sidebar.html.erb (0.5ms)
+  Rendered companies/index.html.erb within layouts/application (22.3ms)
+Completed 500 Internal Server Error in 90ms
+  [1m[35m (0.3ms)[0m  rollback transaction
+  [1m[36m (1.1ms)[0m  [1mCREATE TABLE "companies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "company_id" integer, "default_rate" integer, "created_at" datetime, "updated_at" datetime, "slug" varchar(255), "user_id" integer) 
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "fname" varchar(255), "lname" varchar(255), "company_id" integer, "created_at" datetime, "updated_at" datetime, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255)) [0m
+  [1m[35m (0.6ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.7ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "works" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "project_id" integer, "user_id" integer, "datetimeperformed" datetime, "created_at" datetime, "updated_at" datetime, "hours" integer, "doc" varchar(255)) 
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.6ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140109183803')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131211230943')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131211231713')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131211231725')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131211231734')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131221222519')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131229151636')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140107232606')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140107233020')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140108204748')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "companies"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('Bentley Hoke', '2014-01-11 01:41:02', '2014-01-11 01:41:02', 242211569)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('Client Inc.', '2014-01-11 01:41:02', '2014-01-11 01:41:02', 673772394)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('ABC, Ltd.', '2014-01-11 01:41:02', '2014-01-11 01:41:02', 944384622)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "default_rate", "slug", "created_at", "updated_at", "id", "company_id", "user_id") VALUES ('Project XYZ', 60, 'project-xyz', '2014-01-11 01:41:02', '2014-01-11 01:41:02', 463626445, 673772394, 128271312)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "projects" ("name", "default_rate", "slug", "created_at", "updated_at", "id", "company_id", "user_id") VALUES ('Second Proj', 125, 'second-proj', '2014-01-11 01:41:02', '2014-01-11 01:41:02', 647910780, 944384622, 128271312)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("fname", "lname", "email", "encrypted_password", "created_at", "updated_at", "id", "company_id") VALUES ('Brian', 'Hoke', 'bhoke@bentleyhoke.com', '$2a$04$SfB0BIGn/lgAoNQyY7gXvOSy5Pwc9Tgx4fXD5uDnD5DtB0E.vGwOK', '2014-01-11 01:41:02', '2014-01-11 01:41:02', 128271312, 242211569)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("fname", "lname", "email", "created_at", "updated_at", "id", "company_id") VALUES ('Jane', 'Doe', 'jdoe@example.com', '2014-01-11 01:41:02', '2014-01-11 01:41:02', 194731895, 242211569)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("fname", "lname", "email", "created_at", "updated_at", "id", "company_id") VALUES ('Ralph', 'Martinez', 'rmartin@example.com', '2014-01-11 01:41:02', '2014-01-11 01:41:02', 767380590, 673772394)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "works"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-11 01:41:02.000000', 1, '2014-01-11 01:41:02', '2014-01-11 01:41:02', 583614887, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-10 01:41:02.000000', 2, '2014-01-11 01:41:02', '2014-01-11 01:41:02', 365850930, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-09 01:41:02.000000', 3, '2014-01-11 01:41:02', '2014-01-11 01:41:02', 214376590, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-08 01:41:02.000000', 4, '2014-01-11 01:41:02', '2014-01-11 01:41:02', 1002442783, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-07 01:41:02.000000', 5, '2014-01-11 01:41:02', '2014-01-11 01:41:02', 631539134, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-06 01:41:02.000000', 6, '2014-01-11 01:41:02', '2014-01-11 01:41:02', 312718633, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-05 01:41:02.000000', 7, '2014-01-11 01:41:02', '2014-01-11 01:41:02', 195749013, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-04 01:41:02.000000', 8, '2014-01-11 01:41:02', '2014-01-11 01:41:02', 1018024966, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-03 01:41:02.000000', 1, '2014-01-11 01:41:02', '2014-01-11 01:41:02', 739428757, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-02 01:41:02.000000', 2, '2014-01-11 01:41:02', '2014-01-11 01:41:02', 454424836, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-01 01:41:02.000000', 3, '2014-01-11 01:41:02', '2014-01-11 01:41:02', 626004332, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-31 01:41:02.000000', 4, '2014-01-11 01:41:02', '2014-01-11 01:41:02', 307700223, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-30 01:41:02.000000', 5, '2014-01-11 01:41:02', '2014-01-11 01:41:02', 190738503, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-29 01:41:02.000000', 6, '2014-01-11 01:41:02', '2014-01-11 01:41:02', 1012482256, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-28 01:41:02.000000', 7, '2014-01-11 01:41:02', '2014-01-11 01:41:02', 574477685, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-27 01:41:02.000000', 8, '2014-01-11 01:41:02', '2014-01-11 01:41:02', 356181480, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-26 01:41:02.000000', 1, '2014-01-11 01:41:02', '2014-01-11 01:41:02', 204715104, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-25 01:41:02.000000', 2, '2014-01-11 01:41:02', '2014-01-11 01:41:02', 993297609, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-24 01:41:02.000000', 3, '2014-01-11 01:41:02', '2014-01-11 01:41:02', 730569050, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-23 01:41:02.000000', 4, '2014-01-11 01:41:02', '2014-01-11 01:41:02', 478980561, 647910780, 194731895)
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------
+CompaniesControllerTest: test_should_get_index
+----------------------------------------------
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/_company.html.erb (1.7ms)
+  Rendered companies/_sidebar.html.erb (0.6ms)
+  Rendered companies/index.html.erb within layouts/application (18.1ms)
+Completed 500 Internal Server Error in 67ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (2.8ms)[0m  [1mCREATE TABLE "companies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "company_id" integer, "default_rate" integer, "created_at" datetime, "updated_at" datetime, "slug" varchar(255), "user_id" integer) 
+  [1m[36m (1.1ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "fname" varchar(255), "lname" varchar(255), "company_id" integer, "created_at" datetime, "updated_at" datetime, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255)) [0m
+  [1m[35m (0.9ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.8ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (1.1ms)[0m  CREATE TABLE "works" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "project_id" integer, "user_id" integer, "datetimeperformed" datetime, "created_at" datetime, "updated_at" datetime, "hours" integer, "doc" varchar(255)) 
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (1.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140109183803')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131211230943')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131211231713')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131211231725')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131211231734')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131221222519')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131229151636')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140107232606')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140107233020')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140108204748')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "companies"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('Bentley Hoke', '2014-01-11 01:41:30', '2014-01-11 01:41:30', 242211569)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('Client Inc.', '2014-01-11 01:41:30', '2014-01-11 01:41:30', 673772394)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('ABC, Ltd.', '2014-01-11 01:41:30', '2014-01-11 01:41:30', 944384622)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "default_rate", "slug", "created_at", "updated_at", "id", "company_id", "user_id") VALUES ('Project XYZ', 60, 'project-xyz', '2014-01-11 01:41:30', '2014-01-11 01:41:30', 463626445, 673772394, 128271312)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "projects" ("name", "default_rate", "slug", "created_at", "updated_at", "id", "company_id", "user_id") VALUES ('Second Proj', 125, 'second-proj', '2014-01-11 01:41:30', '2014-01-11 01:41:30', 647910780, 944384622, 128271312)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("fname", "lname", "email", "encrypted_password", "created_at", "updated_at", "id", "company_id") VALUES ('Brian', 'Hoke', 'bhoke@bentleyhoke.com', '$2a$04$M3er45.TIwAb57Q9afRav.SaQXI0WVVIS3B12r8MKojfzQZroxgo.', '2014-01-11 01:41:30', '2014-01-11 01:41:30', 128271312, 242211569)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("fname", "lname", "email", "created_at", "updated_at", "id", "company_id") VALUES ('Jane', 'Doe', 'jdoe@example.com', '2014-01-11 01:41:30', '2014-01-11 01:41:30', 194731895, 242211569)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("fname", "lname", "email", "created_at", "updated_at", "id", "company_id") VALUES ('Ralph', 'Martinez', 'rmartin@example.com', '2014-01-11 01:41:30', '2014-01-11 01:41:30', 767380590, 673772394)[0m
+  [1m[35mFixture Delete (0.0ms)[0m  DELETE FROM "works"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-11 01:41:30.000000', 1, '2014-01-11 01:41:30', '2014-01-11 01:41:30', 583614887, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-10 01:41:30.000000', 2, '2014-01-11 01:41:30', '2014-01-11 01:41:30', 365850930, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-09 01:41:30.000000', 3, '2014-01-11 01:41:30', '2014-01-11 01:41:30', 214376590, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-08 01:41:30.000000', 4, '2014-01-11 01:41:30', '2014-01-11 01:41:30', 1002442783, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-07 01:41:30.000000', 5, '2014-01-11 01:41:30', '2014-01-11 01:41:30', 631539134, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-06 01:41:30.000000', 6, '2014-01-11 01:41:30', '2014-01-11 01:41:30', 312718633, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-05 01:41:30.000000', 7, '2014-01-11 01:41:30', '2014-01-11 01:41:30', 195749013, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-04 01:41:30.000000', 8, '2014-01-11 01:41:30', '2014-01-11 01:41:30', 1018024966, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-03 01:41:30.000000', 1, '2014-01-11 01:41:30', '2014-01-11 01:41:30', 739428757, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-02 01:41:30.000000', 2, '2014-01-11 01:41:30', '2014-01-11 01:41:30', 454424836, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-01 01:41:30.000000', 3, '2014-01-11 01:41:30', '2014-01-11 01:41:30', 626004332, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-31 01:41:30.000000', 4, '2014-01-11 01:41:30', '2014-01-11 01:41:30', 307700223, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-30 01:41:30.000000', 5, '2014-01-11 01:41:30', '2014-01-11 01:41:30', 190738503, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-29 01:41:30.000000', 6, '2014-01-11 01:41:30', '2014-01-11 01:41:30', 1012482256, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-28 01:41:30.000000', 7, '2014-01-11 01:41:30', '2014-01-11 01:41:30', 574477685, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-27 01:41:30.000000', 8, '2014-01-11 01:41:30', '2014-01-11 01:41:30', 356181480, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-26 01:41:30.000000', 1, '2014-01-11 01:41:30', '2014-01-11 01:41:30', 204715104, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-25 01:41:30.000000', 2, '2014-01-11 01:41:30', '2014-01-11 01:41:30', 993297609, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-24 01:41:30.000000', 3, '2014-01-11 01:41:30', '2014-01-11 01:41:30', 730569050, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-23 01:41:30.000000', 4, '2014-01-11 01:41:30', '2014-01-11 01:41:30', 478980561, 647910780, 194731895)
+  [1m[36m (2.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------
+CompaniesControllerTest: test_should_get_index
+----------------------------------------------
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/_company.html.erb (1.3ms)
+  Rendered companies/_sidebar.html.erb (0.4ms)
+  Rendered companies/index.html.erb within layouts/application (13.3ms)
+Completed 500 Internal Server Error in 56ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (2.6ms)[0m  [1mCREATE TABLE "companies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "company_id" integer, "default_rate" integer, "created_at" datetime, "updated_at" datetime, "slug" varchar(255), "user_id" integer) 
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "fname" varchar(255), "lname" varchar(255), "company_id" integer, "created_at" datetime, "updated_at" datetime, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255)) [0m
+  [1m[35m (0.9ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.8ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "works" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "project_id" integer, "user_id" integer, "datetimeperformed" datetime, "created_at" datetime, "updated_at" datetime, "hours" integer, "doc" varchar(255)) 
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140109183803')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131211230943')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131211231713')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131211231725')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131211231734')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131221222519')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131229151636')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140107232606')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140107233020')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140108204748')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "companies"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('Bentley Hoke', '2014-01-11 01:42:17', '2014-01-11 01:42:17', 242211569)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('Client Inc.', '2014-01-11 01:42:17', '2014-01-11 01:42:17', 673772394)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('ABC, Ltd.', '2014-01-11 01:42:17', '2014-01-11 01:42:17', 944384622)
+  [1m[36mFixture Delete (0.0ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "default_rate", "slug", "created_at", "updated_at", "id", "company_id", "user_id") VALUES ('Project XYZ', 60, 'project-xyz', '2014-01-11 01:42:17', '2014-01-11 01:42:17', 463626445, 673772394, 128271312)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "projects" ("name", "default_rate", "slug", "created_at", "updated_at", "id", "company_id", "user_id") VALUES ('Second Proj', 125, 'second-proj', '2014-01-11 01:42:17', '2014-01-11 01:42:17', 647910780, 944384622, 128271312)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("fname", "lname", "email", "encrypted_password", "created_at", "updated_at", "id", "company_id") VALUES ('Brian', 'Hoke', 'bhoke@bentleyhoke.com', '$2a$04$0Ra/CEXsayuVKq7z0kK73.C0f99UkCk5xgvB2E4yqqzBuxO4dEMtG', '2014-01-11 01:42:17', '2014-01-11 01:42:17', 128271312, 242211569)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("fname", "lname", "email", "created_at", "updated_at", "id", "company_id") VALUES ('Jane', 'Doe', 'jdoe@example.com', '2014-01-11 01:42:17', '2014-01-11 01:42:17', 194731895, 242211569)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("fname", "lname", "email", "created_at", "updated_at", "id", "company_id") VALUES ('Ralph', 'Martinez', 'rmartin@example.com', '2014-01-11 01:42:17', '2014-01-11 01:42:17', 767380590, 673772394)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "works"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-11 01:42:17.000000', 1, '2014-01-11 01:42:17', '2014-01-11 01:42:17', 583614887, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-10 01:42:17.000000', 2, '2014-01-11 01:42:17', '2014-01-11 01:42:17', 365850930, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-09 01:42:17.000000', 3, '2014-01-11 01:42:17', '2014-01-11 01:42:17', 214376590, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-08 01:42:17.000000', 4, '2014-01-11 01:42:17', '2014-01-11 01:42:17', 1002442783, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-07 01:42:17.000000', 5, '2014-01-11 01:42:17', '2014-01-11 01:42:17', 631539134, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-06 01:42:17.000000', 6, '2014-01-11 01:42:17', '2014-01-11 01:42:17', 312718633, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-05 01:42:17.000000', 7, '2014-01-11 01:42:17', '2014-01-11 01:42:17', 195749013, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-04 01:42:17.000000', 8, '2014-01-11 01:42:17', '2014-01-11 01:42:17', 1018024966, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-03 01:42:17.000000', 1, '2014-01-11 01:42:17', '2014-01-11 01:42:17', 739428757, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-02 01:42:17.000000', 2, '2014-01-11 01:42:17', '2014-01-11 01:42:17', 454424836, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-01 01:42:17.000000', 3, '2014-01-11 01:42:17', '2014-01-11 01:42:17', 626004332, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-31 01:42:17.000000', 4, '2014-01-11 01:42:17', '2014-01-11 01:42:17', 307700223, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-30 01:42:17.000000', 5, '2014-01-11 01:42:17', '2014-01-11 01:42:17', 190738503, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-29 01:42:17.000000', 6, '2014-01-11 01:42:17', '2014-01-11 01:42:17', 1012482256, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-28 01:42:17.000000', 7, '2014-01-11 01:42:17', '2014-01-11 01:42:17', 574477685, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-27 01:42:17.000000', 8, '2014-01-11 01:42:17', '2014-01-11 01:42:17', 356181480, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-26 01:42:17.000000', 1, '2014-01-11 01:42:17', '2014-01-11 01:42:17', 204715104, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-25 01:42:17.000000', 2, '2014-01-11 01:42:17', '2014-01-11 01:42:17', 993297609, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-24 01:42:17.000000', 3, '2014-01-11 01:42:17', '2014-01-11 01:42:17', 730569050, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-23 01:42:17.000000', 4, '2014-01-11 01:42:17', '2014-01-11 01:42:17', 478980561, 647910780, 194731895)
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------
+CompaniesControllerTest: test_should_get_index
+----------------------------------------------
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/_company.html.erb (1.5ms)
+  Rendered companies/_sidebar.html.erb (0.5ms)
+  Rendered companies/index.html.erb within layouts/application (15.5ms)
+Completed 200 OK in 65ms (Views: 64.4ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (2.1ms)[0m  [1mCREATE TABLE "companies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "company_id" integer, "default_rate" integer, "created_at" datetime, "updated_at" datetime, "slug" varchar(255), "user_id" integer) 
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "fname" varchar(255), "lname" varchar(255), "company_id" integer, "created_at" datetime, "updated_at" datetime, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255)) [0m
+  [1m[35m (0.6ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.6ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "works" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "project_id" integer, "user_id" integer, "datetimeperformed" datetime, "created_at" datetime, "updated_at" datetime, "hours" integer, "doc" varchar(255)) 
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140109183803')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131211230943')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131211231713')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131211231725')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131211231734')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131221222519')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131229151636')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140107232606')[0m
+  [1m[35m (1.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140107233020')
+  [1m[36m (1.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140108204748')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.2ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "companies"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('Bentley Hoke', '2014-01-11 01:45:45', '2014-01-11 01:45:45', 242211569)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('Client Inc.', '2014-01-11 01:45:45', '2014-01-11 01:45:45', 673772394)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('ABC, Ltd.', '2014-01-11 01:45:45', '2014-01-11 01:45:45', 944384622)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "default_rate", "slug", "created_at", "updated_at", "id", "company_id", "user_id") VALUES ('Project XYZ', 60, 'project-xyz', '2014-01-11 01:45:45', '2014-01-11 01:45:45', 463626445, 673772394, 128271312)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "projects" ("name", "default_rate", "slug", "created_at", "updated_at", "id", "company_id", "user_id") VALUES ('Second Proj', 125, 'second-proj', '2014-01-11 01:45:45', '2014-01-11 01:45:45', 647910780, 944384622, 128271312)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("fname", "lname", "email", "encrypted_password", "created_at", "updated_at", "id", "company_id") VALUES ('Brian', 'Hoke', 'bhoke@bentleyhoke.com', '$2a$04$LdGLaE5iyd0aIm4aD4gYRes2pr.F9chv.whg4iOB/X.aF1SxEUKby', '2014-01-11 01:45:45', '2014-01-11 01:45:45', 128271312, 242211569)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("fname", "lname", "email", "created_at", "updated_at", "id", "company_id") VALUES ('Jane', 'Doe', 'jdoe@example.com', '2014-01-11 01:45:45', '2014-01-11 01:45:45', 194731895, 242211569)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("fname", "lname", "email", "created_at", "updated_at", "id", "company_id") VALUES ('Ralph', 'Martinez', 'rmartin@example.com', '2014-01-11 01:45:45', '2014-01-11 01:45:45', 767380590, 673772394)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "works"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-11 01:45:45.000000', 1, '2014-01-11 01:45:45', '2014-01-11 01:45:45', 583614887, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-10 01:45:45.000000', 2, '2014-01-11 01:45:45', '2014-01-11 01:45:45', 365850930, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-09 01:45:45.000000', 3, '2014-01-11 01:45:45', '2014-01-11 01:45:45', 214376590, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-08 01:45:45.000000', 4, '2014-01-11 01:45:45', '2014-01-11 01:45:45', 1002442783, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-07 01:45:45.000000', 5, '2014-01-11 01:45:45', '2014-01-11 01:45:45', 631539134, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-06 01:45:45.000000', 6, '2014-01-11 01:45:45', '2014-01-11 01:45:45', 312718633, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-05 01:45:45.000000', 7, '2014-01-11 01:45:45', '2014-01-11 01:45:45', 195749013, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-04 01:45:45.000000', 8, '2014-01-11 01:45:45', '2014-01-11 01:45:45', 1018024966, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-03 01:45:45.000000', 1, '2014-01-11 01:45:45', '2014-01-11 01:45:45', 739428757, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-02 01:45:45.000000', 2, '2014-01-11 01:45:45', '2014-01-11 01:45:45', 454424836, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-01 01:45:45.000000', 3, '2014-01-11 01:45:45', '2014-01-11 01:45:45', 626004332, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-31 01:45:45.000000', 4, '2014-01-11 01:45:45', '2014-01-11 01:45:45', 307700223, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-30 01:45:45.000000', 5, '2014-01-11 01:45:45', '2014-01-11 01:45:45', 190738503, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-29 01:45:45.000000', 6, '2014-01-11 01:45:45', '2014-01-11 01:45:45', 1012482256, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-28 01:45:45.000000', 7, '2014-01-11 01:45:45', '2014-01-11 01:45:45', 574477685, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-27 01:45:45.000000', 8, '2014-01-11 01:45:45', '2014-01-11 01:45:45', 356181480, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-26 01:45:45.000000', 1, '2014-01-11 01:45:45', '2014-01-11 01:45:45', 204715104, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-25 01:45:45.000000', 2, '2014-01-11 01:45:45', '2014-01-11 01:45:45', 993297609, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-24 01:45:45.000000', 3, '2014-01-11 01:45:45', '2014-01-11 01:45:45', 730569050, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-23 01:45:45.000000', 4, '2014-01-11 01:45:45', '2014-01-11 01:45:45', 478980561, 647910780, 194731895)
+  [1m[36m (1.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------
+CompaniesControllerTest: test_should_get_index
+----------------------------------------------
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/_company.html.erb (2.3ms)
+  Rendered companies/_sidebar.html.erb (0.8ms)
+  Rendered companies/index.html.erb within layouts/application (15.4ms)
+Completed 500 Internal Server Error in 71ms
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (2.5ms)[0m  [1mCREATE TABLE "companies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.1ms)[0m  CREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "company_id" integer, "default_rate" integer, "created_at" datetime, "updated_at" datetime, "slug" varchar(255), "user_id" integer) 
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "fname" varchar(255), "lname" varchar(255), "company_id" integer, "created_at" datetime, "updated_at" datetime, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255)) [0m
+  [1m[35m (0.8ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.6ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "works" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "project_id" integer, "user_id" integer, "datetimeperformed" datetime, "created_at" datetime, "updated_at" datetime, "hours" integer, "doc" varchar(255)) 
+  [1m[36m (0.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.9ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140109183803')
+  [1m[36m (1.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131211230943')[0m
+  [1m[35m (1.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131211231713')
+  [1m[36m (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131211231725')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131211231734')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131221222519')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131229151636')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140107232606')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140107233020')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140108204748')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "companies"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('Bentley Hoke', '2014-01-11 01:46:36', '2014-01-11 01:46:36', 242211569)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('Client Inc.', '2014-01-11 01:46:36', '2014-01-11 01:46:36', 673772394)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('ABC, Ltd.', '2014-01-11 01:46:36', '2014-01-11 01:46:36', 944384622)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "default_rate", "slug", "created_at", "updated_at", "id", "company_id", "user_id") VALUES ('Project XYZ', 60, 'project-xyz', '2014-01-11 01:46:36', '2014-01-11 01:46:36', 463626445, 673772394, 128271312)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "projects" ("name", "default_rate", "slug", "created_at", "updated_at", "id", "company_id", "user_id") VALUES ('Second Proj', 125, 'second-proj', '2014-01-11 01:46:36', '2014-01-11 01:46:36', 647910780, 944384622, 128271312)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("fname", "lname", "email", "encrypted_password", "created_at", "updated_at", "id", "company_id") VALUES ('Brian', 'Hoke', 'bhoke@bentleyhoke.com', '$2a$04$ahekT4IzXs5bnr7LOC9Ep.JG9TIiw6xe/ED1/cduHQ0D23HFIZ6Ka', '2014-01-11 01:46:36', '2014-01-11 01:46:36', 128271312, 242211569)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("fname", "lname", "email", "created_at", "updated_at", "id", "company_id") VALUES ('Jane', 'Doe', 'jdoe@example.com', '2014-01-11 01:46:36', '2014-01-11 01:46:36', 194731895, 242211569)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("fname", "lname", "email", "created_at", "updated_at", "id", "company_id") VALUES ('Ralph', 'Martinez', 'rmartin@example.com', '2014-01-11 01:46:36', '2014-01-11 01:46:36', 767380590, 673772394)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "works"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-11 01:46:36.000000', 1, '2014-01-11 01:46:36', '2014-01-11 01:46:36', 583614887, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-10 01:46:36.000000', 2, '2014-01-11 01:46:36', '2014-01-11 01:46:36', 365850930, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-09 01:46:36.000000', 3, '2014-01-11 01:46:36', '2014-01-11 01:46:36', 214376590, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-08 01:46:36.000000', 4, '2014-01-11 01:46:36', '2014-01-11 01:46:36', 1002442783, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-07 01:46:36.000000', 5, '2014-01-11 01:46:36', '2014-01-11 01:46:36', 631539134, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-06 01:46:36.000000', 6, '2014-01-11 01:46:36', '2014-01-11 01:46:36', 312718633, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-05 01:46:36.000000', 7, '2014-01-11 01:46:36', '2014-01-11 01:46:36', 195749013, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-04 01:46:36.000000', 8, '2014-01-11 01:46:36', '2014-01-11 01:46:36', 1018024966, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-03 01:46:36.000000', 1, '2014-01-11 01:46:36', '2014-01-11 01:46:36', 739428757, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-02 01:46:36.000000', 2, '2014-01-11 01:46:36', '2014-01-11 01:46:36', 454424836, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-01 01:46:36.000000', 3, '2014-01-11 01:46:36', '2014-01-11 01:46:36', 626004332, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-31 01:46:36.000000', 4, '2014-01-11 01:46:36', '2014-01-11 01:46:36', 307700223, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-30 01:46:36.000000', 5, '2014-01-11 01:46:36', '2014-01-11 01:46:36', 190738503, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-29 01:46:36.000000', 6, '2014-01-11 01:46:36', '2014-01-11 01:46:36', 1012482256, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-28 01:46:36.000000', 7, '2014-01-11 01:46:36', '2014-01-11 01:46:36', 574477685, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-27 01:46:36.000000', 8, '2014-01-11 01:46:36', '2014-01-11 01:46:36', 356181480, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-26 01:46:36.000000', 1, '2014-01-11 01:46:36', '2014-01-11 01:46:36', 204715104, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-25 01:46:36.000000', 2, '2014-01-11 01:46:36', '2014-01-11 01:46:36', 993297609, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-24 01:46:36.000000', 3, '2014-01-11 01:46:36', '2014-01-11 01:46:36', 730569050, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-23 01:46:36.000000', 4, '2014-01-11 01:46:36', '2014-01-11 01:46:36', 478980561, 647910780, 194731895)
+  [1m[36m (2.0ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------
+CompaniesControllerTest: test_should_get_index
+----------------------------------------------
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/_company.html.erb (1.7ms)
+  Rendered companies/_sidebar.html.erb (0.5ms)
+  Rendered companies/index.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 80ms (Views: 78.5ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (2.3ms)[0m  [1mCREATE TABLE "companies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.3ms)[0m  CREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "company_id" integer, "default_rate" integer, "created_at" datetime, "updated_at" datetime, "slug" varchar(255), "user_id" integer) 
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "fname" varchar(255), "lname" varchar(255), "company_id" integer, "created_at" datetime, "updated_at" datetime, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255)) [0m
+  [1m[35m (0.9ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.8ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.7ms)[0m  CREATE TABLE "works" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "project_id" integer, "user_id" integer, "datetimeperformed" datetime, "created_at" datetime, "updated_at" datetime, "hours" integer, "doc" varchar(255)) 
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140109183803')
+  [1m[36m (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131211230943')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131211231713')
+  [1m[36m (0.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131211231725')[0m
+  [1m[35m (0.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131211231734')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131221222519')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131229151636')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140107232606')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140107233020')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140108204748')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "companies"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('Bentley Hoke', '2014-01-11 01:46:55', '2014-01-11 01:46:55', 242211569)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('Client Inc.', '2014-01-11 01:46:55', '2014-01-11 01:46:55', 673772394)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('ABC, Ltd.', '2014-01-11 01:46:55', '2014-01-11 01:46:55', 944384622)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "default_rate", "slug", "created_at", "updated_at", "id", "company_id", "user_id") VALUES ('Project XYZ', 60, 'project-xyz', '2014-01-11 01:46:55', '2014-01-11 01:46:55', 463626445, 673772394, 128271312)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "projects" ("name", "default_rate", "slug", "created_at", "updated_at", "id", "company_id", "user_id") VALUES ('Second Proj', 125, 'second-proj', '2014-01-11 01:46:55', '2014-01-11 01:46:55', 647910780, 944384622, 128271312)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("fname", "lname", "email", "encrypted_password", "created_at", "updated_at", "id", "company_id") VALUES ('Brian', 'Hoke', 'bhoke@bentleyhoke.com', '$2a$04$KDur73ZfJzDKeU6fe7mZJ.aP5P79gGIxq/AYbztcu3ZDzfDmEUaGO', '2014-01-11 01:46:55', '2014-01-11 01:46:55', 128271312, 242211569)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("fname", "lname", "email", "created_at", "updated_at", "id", "company_id") VALUES ('Jane', 'Doe', 'jdoe@example.com', '2014-01-11 01:46:55', '2014-01-11 01:46:55', 194731895, 242211569)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("fname", "lname", "email", "created_at", "updated_at", "id", "company_id") VALUES ('Ralph', 'Martinez', 'rmartin@example.com', '2014-01-11 01:46:55', '2014-01-11 01:46:55', 767380590, 673772394)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "works"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-11 01:46:55.000000', 1, '2014-01-11 01:46:55', '2014-01-11 01:46:55', 583614887, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-10 01:46:55.000000', 2, '2014-01-11 01:46:55', '2014-01-11 01:46:55', 365850930, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-09 01:46:55.000000', 3, '2014-01-11 01:46:55', '2014-01-11 01:46:55', 214376590, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-08 01:46:55.000000', 4, '2014-01-11 01:46:55', '2014-01-11 01:46:55', 1002442783, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-07 01:46:55.000000', 5, '2014-01-11 01:46:55', '2014-01-11 01:46:55', 631539134, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-06 01:46:55.000000', 6, '2014-01-11 01:46:55', '2014-01-11 01:46:55', 312718633, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-05 01:46:55.000000', 7, '2014-01-11 01:46:55', '2014-01-11 01:46:55', 195749013, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-04 01:46:55.000000', 8, '2014-01-11 01:46:55', '2014-01-11 01:46:55', 1018024966, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-03 01:46:55.000000', 1, '2014-01-11 01:46:55', '2014-01-11 01:46:55', 739428757, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-02 01:46:55.000000', 2, '2014-01-11 01:46:55', '2014-01-11 01:46:55', 454424836, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-01 01:46:55.000000', 3, '2014-01-11 01:46:55', '2014-01-11 01:46:55', 626004332, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-31 01:46:55.000000', 4, '2014-01-11 01:46:55', '2014-01-11 01:46:55', 307700223, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-30 01:46:55.000000', 5, '2014-01-11 01:46:55', '2014-01-11 01:46:55', 190738503, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-29 01:46:55.000000', 6, '2014-01-11 01:46:55', '2014-01-11 01:46:55', 1012482256, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-28 01:46:55.000000', 7, '2014-01-11 01:46:55', '2014-01-11 01:46:55', 574477685, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-27 01:46:55.000000', 8, '2014-01-11 01:46:55', '2014-01-11 01:46:55', 356181480, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-26 01:46:55.000000', 1, '2014-01-11 01:46:55', '2014-01-11 01:46:55', 204715104, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-25 01:46:55.000000', 2, '2014-01-11 01:46:55', '2014-01-11 01:46:55', 993297609, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-24 01:46:55.000000', 3, '2014-01-11 01:46:55', '2014-01-11 01:46:55', 730569050, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-23 01:46:55.000000', 4, '2014-01-11 01:46:55', '2014-01-11 01:46:55', 478980561, 647910780, 194731895)
+  [1m[36m (1.8ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+----------------------------------------------
+CompaniesControllerTest: test_should_get_index
+----------------------------------------------
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/_company.html.erb (1.6ms)
+  Rendered companies/_sidebar.html.erb (0.6ms)
+  Rendered companies/index.html.erb within layouts/application (16.3ms)
+Completed 200 OK in 84ms (Views: 83.4ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (2.4ms)[0m  [1mCREATE TABLE "companies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "company_id" integer, "default_rate" integer, "created_at" datetime, "updated_at" datetime, "slug" varchar(255), "user_id" integer) 
+  [1m[36m (1.2ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "fname" varchar(255), "lname" varchar(255), "company_id" integer, "created_at" datetime, "updated_at" datetime, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255)) [0m
+  [1m[35m (0.9ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.8ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "works" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "project_id" integer, "user_id" integer, "datetimeperformed" datetime, "created_at" datetime, "updated_at" datetime, "hours" integer, "doc" varchar(255)) 
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140109183803')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131211230943')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131211231713')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131211231725')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131211231734')
+  [1m[36m (1.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131221222519')[0m
+  [1m[35m (0.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131229151636')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140107232606')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140107233020')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140108204748')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM "companies"[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('Bentley Hoke', '2014-01-11 01:47:09', '2014-01-11 01:47:09', 242211569)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('Client Inc.', '2014-01-11 01:47:09', '2014-01-11 01:47:09', 673772394)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('ABC, Ltd.', '2014-01-11 01:47:09', '2014-01-11 01:47:09', 944384622)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "default_rate", "slug", "created_at", "updated_at", "id", "company_id", "user_id") VALUES ('Project XYZ', 60, 'project-xyz', '2014-01-11 01:47:09', '2014-01-11 01:47:09', 463626445, 673772394, 128271312)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "projects" ("name", "default_rate", "slug", "created_at", "updated_at", "id", "company_id", "user_id") VALUES ('Second Proj', 125, 'second-proj', '2014-01-11 01:47:09', '2014-01-11 01:47:09', 647910780, 944384622, 128271312)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("fname", "lname", "email", "encrypted_password", "created_at", "updated_at", "id", "company_id") VALUES ('Brian', 'Hoke', 'bhoke@bentleyhoke.com', '$2a$04$Er.iReiYAEvHSgL4A4Sx.ufUviQlL.evP2bv7k7tfEiGYJJpUS3oq', '2014-01-11 01:47:09', '2014-01-11 01:47:09', 128271312, 242211569)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("fname", "lname", "email", "created_at", "updated_at", "id", "company_id") VALUES ('Jane', 'Doe', 'jdoe@example.com', '2014-01-11 01:47:09', '2014-01-11 01:47:09', 194731895, 242211569)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("fname", "lname", "email", "created_at", "updated_at", "id", "company_id") VALUES ('Ralph', 'Martinez', 'rmartin@example.com', '2014-01-11 01:47:09', '2014-01-11 01:47:09', 767380590, 673772394)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "works"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-11 01:47:09.000000', 1, '2014-01-11 01:47:09', '2014-01-11 01:47:09', 583614887, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-10 01:47:09.000000', 2, '2014-01-11 01:47:09', '2014-01-11 01:47:09', 365850930, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-09 01:47:09.000000', 3, '2014-01-11 01:47:09', '2014-01-11 01:47:09', 214376590, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-08 01:47:09.000000', 4, '2014-01-11 01:47:09', '2014-01-11 01:47:09', 1002442783, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-07 01:47:09.000000', 5, '2014-01-11 01:47:09', '2014-01-11 01:47:09', 631539134, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-06 01:47:09.000000', 6, '2014-01-11 01:47:09', '2014-01-11 01:47:09', 312718633, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-05 01:47:09.000000', 7, '2014-01-11 01:47:09', '2014-01-11 01:47:09', 195749013, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-04 01:47:09.000000', 8, '2014-01-11 01:47:09', '2014-01-11 01:47:09', 1018024966, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-03 01:47:09.000000', 1, '2014-01-11 01:47:09', '2014-01-11 01:47:09', 739428757, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-02 01:47:09.000000', 2, '2014-01-11 01:47:09', '2014-01-11 01:47:09', 454424836, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-01 01:47:09.000000', 3, '2014-01-11 01:47:09', '2014-01-11 01:47:09', 626004332, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-31 01:47:09.000000', 4, '2014-01-11 01:47:09', '2014-01-11 01:47:09', 307700223, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-30 01:47:09.000000', 5, '2014-01-11 01:47:09', '2014-01-11 01:47:09', 190738503, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-29 01:47:09.000000', 6, '2014-01-11 01:47:09', '2014-01-11 01:47:09', 1012482256, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-28 01:47:09.000000', 7, '2014-01-11 01:47:09', '2014-01-11 01:47:09', 574477685, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-27 01:47:09.000000', 8, '2014-01-11 01:47:09', '2014-01-11 01:47:09', 356181480, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-26 01:47:09.000000', 1, '2014-01-11 01:47:09', '2014-01-11 01:47:09', 204715104, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-25 01:47:09.000000', 2, '2014-01-11 01:47:09', '2014-01-11 01:47:09', 993297609, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-24 01:47:09.000000', 3, '2014-01-11 01:47:09', '2014-01-11 01:47:09', 730569050, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-23 01:47:09.000000', 4, '2014-01-11 01:47:09', '2014-01-11 01:47:09', 478980561, 647910780, 194731895)
+  [1m[36m (2.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+----------------------------------------------
+CompaniesControllerTest: test_should_get_index
+----------------------------------------------
+Processing by CompaniesController#index as HTML
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT "companies".* FROM "companies"[0m
+  Rendered companies/_company.html.erb (1.5ms)
+  Rendered companies/_sidebar.html.erb (0.6ms)
+  Rendered companies/index.html.erb within layouts/application (14.1ms)
+Completed 200 OK in 78ms (Views: 77.0ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (2.3ms)[0m  [1mCREATE TABLE "companies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.6ms)[0m  CREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "company_id" integer, "default_rate" integer, "created_at" datetime, "updated_at" datetime, "slug" varchar(255), "user_id" integer) 
+  [1m[36m (1.2ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "fname" varchar(255), "lname" varchar(255), "company_id" integer, "created_at" datetime, "updated_at" datetime, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255)) [0m
+  [1m[35m (0.9ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.8ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "works" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "project_id" integer, "user_id" integer, "datetimeperformed" datetime, "created_at" datetime, "updated_at" datetime, "hours" integer, "doc" varchar(255)) 
+  [1m[36m (0.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140109183803')
+  [1m[36m (0.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131211230943')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131211231713')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131211231725')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131211231734')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131221222519')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131229151636')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140107232606')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140107233020')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140108204748')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "companies"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('Bentley Hoke', '2014-01-11 01:49:26', '2014-01-11 01:49:26', 242211569)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('Client Inc.', '2014-01-11 01:49:26', '2014-01-11 01:49:26', 673772394)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('ABC, Ltd.', '2014-01-11 01:49:26', '2014-01-11 01:49:26', 944384622)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "default_rate", "slug", "created_at", "updated_at", "id", "company_id", "user_id") VALUES ('Project XYZ', 60, 'project-xyz', '2014-01-11 01:49:26', '2014-01-11 01:49:26', 463626445, 673772394, 128271312)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "projects" ("name", "default_rate", "slug", "created_at", "updated_at", "id", "company_id", "user_id") VALUES ('Second Proj', 125, 'second-proj', '2014-01-11 01:49:26', '2014-01-11 01:49:26', 647910780, 944384622, 128271312)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("fname", "lname", "email", "encrypted_password", "created_at", "updated_at", "id", "company_id") VALUES ('Brian', 'Hoke', 'bhoke@bentleyhoke.com', '$2a$04$fx3T8zE7Wlo8OEsfk0uj8uJ2cVtMNcF7SNE.VZ/x/6GXgBHw/x4h.', '2014-01-11 01:49:26', '2014-01-11 01:49:26', 128271312, 242211569)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("fname", "lname", "email", "created_at", "updated_at", "id", "company_id") VALUES ('Jane', 'Doe', 'jdoe@example.com', '2014-01-11 01:49:26', '2014-01-11 01:49:26', 194731895, 242211569)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("fname", "lname", "email", "created_at", "updated_at", "id", "company_id") VALUES ('Ralph', 'Martinez', 'rmartin@example.com', '2014-01-11 01:49:26', '2014-01-11 01:49:26', 767380590, 673772394)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "works"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-11 01:49:26.000000', 1, '2014-01-11 01:49:26', '2014-01-11 01:49:26', 583614887, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-10 01:49:26.000000', 2, '2014-01-11 01:49:26', '2014-01-11 01:49:26', 365850930, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-09 01:49:26.000000', 3, '2014-01-11 01:49:26', '2014-01-11 01:49:26', 214376590, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-08 01:49:26.000000', 4, '2014-01-11 01:49:26', '2014-01-11 01:49:26', 1002442783, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-07 01:49:26.000000', 5, '2014-01-11 01:49:26', '2014-01-11 01:49:26', 631539134, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-06 01:49:26.000000', 6, '2014-01-11 01:49:26', '2014-01-11 01:49:26', 312718633, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-05 01:49:26.000000', 7, '2014-01-11 01:49:26', '2014-01-11 01:49:26', 195749013, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-04 01:49:26.000000', 8, '2014-01-11 01:49:26', '2014-01-11 01:49:26', 1018024966, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-03 01:49:26.000000', 1, '2014-01-11 01:49:26', '2014-01-11 01:49:26', 739428757, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-02 01:49:26.000000', 2, '2014-01-11 01:49:26', '2014-01-11 01:49:26', 454424836, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-01 01:49:26.000000', 3, '2014-01-11 01:49:26', '2014-01-11 01:49:26', 626004332, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-31 01:49:26.000000', 4, '2014-01-11 01:49:26', '2014-01-11 01:49:26', 307700223, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-30 01:49:26.000000', 5, '2014-01-11 01:49:26', '2014-01-11 01:49:26', 190738503, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-29 01:49:26.000000', 6, '2014-01-11 01:49:26', '2014-01-11 01:49:26', 1012482256, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-28 01:49:26.000000', 7, '2014-01-11 01:49:26', '2014-01-11 01:49:26', 574477685, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-27 01:49:26.000000', 8, '2014-01-11 01:49:26', '2014-01-11 01:49:26', 356181480, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-26 01:49:26.000000', 1, '2014-01-11 01:49:26', '2014-01-11 01:49:26', 204715104, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-25 01:49:26.000000', 2, '2014-01-11 01:49:26', '2014-01-11 01:49:26', 993297609, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-24 01:49:26.000000', 3, '2014-01-11 01:49:26', '2014-01-11 01:49:26', 730569050, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-23 01:49:26.000000', 4, '2014-01-11 01:49:26', '2014-01-11 01:49:26', 478980561, 647910780, 194731895)
+  [1m[36m (2.2ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------------
+ProjectsControllerTest: test_user_can't_view_projects
+-----------------------------------------------------
+Processing by ProjectsController#index as HTML
+Completed 401 Unauthorized in 19ms
+  Rendered text template (0.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 128271312]]
+Processing by ProjectsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 128271312 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.2ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+  [1m[35mCompany Load (0.2ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."id" = ? ORDER BY "companies"."id" ASC LIMIT 1  [["id", 673772394]]
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."id" = ? ORDER BY "companies"."id" ASC LIMIT 1[0m  [["id", 944384622]]
+  Rendered projects/_project.html.erb (52.5ms)
+  Rendered projects/_sidebar.html.erb (0.6ms)
+  Rendered projects/index.html.erb within layouts/application (73.3ms)
+Completed 200 OK in 96ms (Views: 90.4ms | ActiveRecord: 0.7ms)
+Processing by ProjectsController#index as HTML
+Completed 401 Unauthorized in 1ms
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
+  [1m[36m (2.6ms)[0m  [1mCREATE TABLE "companies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (0.9ms)[0m  CREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "company_id" integer, "default_rate" integer, "created_at" datetime, "updated_at" datetime, "slug" varchar(255), "user_id" integer) 
+  [1m[36m (1.1ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "fname" varchar(255), "lname" varchar(255), "company_id" integer, "created_at" datetime, "updated_at" datetime, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255)) [0m
+  [1m[35m (1.1ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.9ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (0.8ms)[0m  CREATE TABLE "works" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "project_id" integer, "user_id" integer, "datetimeperformed" datetime, "created_at" datetime, "updated_at" datetime, "hours" integer, "doc" varchar(255)) 
+  [1m[36m (0.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140109183803')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131211230943')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131211231713')
+  [1m[36m (0.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131211231725')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131211231734')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131221222519')[0m
+  [1m[35m (0.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131229151636')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140107232606')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140107233020')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140108204748')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.1ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "companies"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('Bentley Hoke', '2014-01-11 01:49:45', '2014-01-11 01:49:45', 242211569)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('Client Inc.', '2014-01-11 01:49:45', '2014-01-11 01:49:45', 673772394)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('ABC, Ltd.', '2014-01-11 01:49:45', '2014-01-11 01:49:45', 944384622)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "default_rate", "slug", "created_at", "updated_at", "id", "company_id", "user_id") VALUES ('Project XYZ', 60, 'project-xyz', '2014-01-11 01:49:45', '2014-01-11 01:49:45', 463626445, 673772394, 128271312)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "projects" ("name", "default_rate", "slug", "created_at", "updated_at", "id", "company_id", "user_id") VALUES ('Second Proj', 125, 'second-proj', '2014-01-11 01:49:45', '2014-01-11 01:49:45', 647910780, 944384622, 128271312)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("fname", "lname", "email", "encrypted_password", "created_at", "updated_at", "id", "company_id") VALUES ('Brian', 'Hoke', 'bhoke@bentleyhoke.com', '$2a$04$iYwpdfM8Aujd42QfGB.4uO8/Xzob59hwO9yFnRbGIdIBKyvx0wNc6', '2014-01-11 01:49:45', '2014-01-11 01:49:45', 128271312, 242211569)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("fname", "lname", "email", "created_at", "updated_at", "id", "company_id") VALUES ('Jane', 'Doe', 'jdoe@example.com', '2014-01-11 01:49:45', '2014-01-11 01:49:45', 194731895, 242211569)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("fname", "lname", "email", "created_at", "updated_at", "id", "company_id") VALUES ('Ralph', 'Martinez', 'rmartin@example.com', '2014-01-11 01:49:45', '2014-01-11 01:49:45', 767380590, 673772394)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "works"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-11 01:49:45.000000', 1, '2014-01-11 01:49:45', '2014-01-11 01:49:45', 583614887, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-10 01:49:45.000000', 2, '2014-01-11 01:49:45', '2014-01-11 01:49:45', 365850930, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-09 01:49:45.000000', 3, '2014-01-11 01:49:45', '2014-01-11 01:49:45', 214376590, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-08 01:49:45.000000', 4, '2014-01-11 01:49:45', '2014-01-11 01:49:45', 1002442783, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-07 01:49:45.000000', 5, '2014-01-11 01:49:45', '2014-01-11 01:49:45', 631539134, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-06 01:49:45.000000', 6, '2014-01-11 01:49:45', '2014-01-11 01:49:45', 312718633, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-05 01:49:45.000000', 7, '2014-01-11 01:49:45', '2014-01-11 01:49:45', 195749013, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-04 01:49:45.000000', 8, '2014-01-11 01:49:45', '2014-01-11 01:49:45', 1018024966, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-03 01:49:45.000000', 1, '2014-01-11 01:49:45', '2014-01-11 01:49:45', 739428757, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-02 01:49:45.000000', 2, '2014-01-11 01:49:45', '2014-01-11 01:49:45', 454424836, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-01 01:49:45.000000', 3, '2014-01-11 01:49:45', '2014-01-11 01:49:45', 626004332, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-31 01:49:45.000000', 4, '2014-01-11 01:49:45', '2014-01-11 01:49:45', 307700223, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-30 01:49:45.000000', 5, '2014-01-11 01:49:45', '2014-01-11 01:49:45', 190738503, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-29 01:49:45.000000', 6, '2014-01-11 01:49:45', '2014-01-11 01:49:45', 1012482256, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-28 01:49:45.000000', 7, '2014-01-11 01:49:45', '2014-01-11 01:49:45', 574477685, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-27 01:49:45.000000', 8, '2014-01-11 01:49:45', '2014-01-11 01:49:45', 356181480, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-26 01:49:45.000000', 1, '2014-01-11 01:49:45', '2014-01-11 01:49:45', 204715104, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-25 01:49:45.000000', 2, '2014-01-11 01:49:45', '2014-01-11 01:49:45', 993297609, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-24 01:49:45.000000', 3, '2014-01-11 01:49:45', '2014-01-11 01:49:45', 730569050, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-23 01:49:45.000000', 4, '2014-01-11 01:49:45', '2014-01-11 01:49:45', 478980561, 647910780, 194731895)
+  [1m[36m (2.1ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+-----------------------------------------------------
+ProjectsControllerTest: test_user_can't_view_projects
+-----------------------------------------------------
+Processing by ProjectsController#index as HTML
+Completed 401 Unauthorized in 16ms
+  Rendered text template (0.0ms)
+  [1m[36m (0.1ms)[0m  [1mrollback transaction[0m
+  [1m[36m (2.6ms)[0m  [1mCREATE TABLE "companies" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "projects" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "company_id" integer, "default_rate" integer, "created_at" datetime, "updated_at" datetime, "slug" varchar(255), "user_id" integer) 
+  [1m[36m (0.9ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "fname" varchar(255), "lname" varchar(255), "company_id" integer, "created_at" datetime, "updated_at" datetime, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "reset_password_sent_at" datetime, "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255)) [0m
+  [1m[35m (0.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36m (0.9ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35m (1.2ms)[0m  CREATE TABLE "works" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "project_id" integer, "user_id" integer, "datetimeperformed" datetime, "created_at" datetime, "updated_at" datetime, "hours" integer, "doc" varchar(255)) 
+  [1m[36m (0.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35m (0.9ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140109183803')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131211230943')[0m
+  [1m[35m (0.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131211231713')
+  [1m[36m (1.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131211231725')[0m
+  [1m[35m (0.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131211231734')
+  [1m[36m (0.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20131221222519')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20131229151636')
+  [1m[36m (0.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140107232606')[0m
+  [1m[35m (0.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20140107233020')
+  [1m[36m (1.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20140108204748')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mFixture Delete (0.2ms)[0m  [1mDELETE FROM "companies"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('Bentley Hoke', '2014-01-11 01:50:02', '2014-01-11 01:50:02', 242211569)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('Client Inc.', '2014-01-11 01:50:02', '2014-01-11 01:50:02', 673772394)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "companies" ("name", "created_at", "updated_at", "id") VALUES ('ABC, Ltd.', '2014-01-11 01:50:02', '2014-01-11 01:50:02', 944384622)
+  [1m[36mFixture Delete (0.1ms)[0m  [1mDELETE FROM "projects"[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "projects" ("name", "default_rate", "slug", "created_at", "updated_at", "id", "company_id", "user_id") VALUES ('Project XYZ', 60, 'project-xyz', '2014-01-11 01:50:02', '2014-01-11 01:50:02', 463626445, 673772394, 128271312)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "projects" ("name", "default_rate", "slug", "created_at", "updated_at", "id", "company_id", "user_id") VALUES ('Second Proj', 125, 'second-proj', '2014-01-11 01:50:02', '2014-01-11 01:50:02', 647910780, 944384622, 128271312)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "users"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("fname", "lname", "email", "encrypted_password", "created_at", "updated_at", "id", "company_id") VALUES ('Brian', 'Hoke', 'bhoke@bentleyhoke.com', '$2a$04$n/hIFGgn6glmXCjwL5MIp.mPPii45nn9fryNRTLKKNus5O/uOmMF6', '2014-01-11 01:50:02', '2014-01-11 01:50:02', 128271312, 242211569)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "users" ("fname", "lname", "email", "created_at", "updated_at", "id", "company_id") VALUES ('Jane', 'Doe', 'jdoe@example.com', '2014-01-11 01:50:02', '2014-01-11 01:50:02', 194731895, 242211569)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "users" ("fname", "lname", "email", "created_at", "updated_at", "id", "company_id") VALUES ('Ralph', 'Martinez', 'rmartin@example.com', '2014-01-11 01:50:02', '2014-01-11 01:50:02', 767380590, 673772394)[0m
+  [1m[35mFixture Delete (0.1ms)[0m  DELETE FROM "works"
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-11 01:50:02.000000', 1, '2014-01-11 01:50:02', '2014-01-11 01:50:02', 583614887, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-10 01:50:02.000000', 2, '2014-01-11 01:50:02', '2014-01-11 01:50:02', 365850930, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-09 01:50:02.000000', 3, '2014-01-11 01:50:02', '2014-01-11 01:50:02', 214376590, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-08 01:50:02.000000', 4, '2014-01-11 01:50:02', '2014-01-11 01:50:02', 1002442783, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-07 01:50:02.000000', 5, '2014-01-11 01:50:02', '2014-01-11 01:50:02', 631539134, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-06 01:50:02.000000', 6, '2014-01-11 01:50:02', '2014-01-11 01:50:02', 312718633, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-05 01:50:02.000000', 7, '2014-01-11 01:50:02', '2014-01-11 01:50:02', 195749013, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-04 01:50:02.000000', 8, '2014-01-11 01:50:02', '2014-01-11 01:50:02', 1018024966, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-03 01:50:02.000000', 1, '2014-01-11 01:50:02', '2014-01-11 01:50:02', 739428757, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-02 01:50:02.000000', 2, '2014-01-11 01:50:02', '2014-01-11 01:50:02', 454424836, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2014-01-01 01:50:02.000000', 3, '2014-01-11 01:50:02', '2014-01-11 01:50:02', 626004332, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-31 01:50:02.000000', 4, '2014-01-11 01:50:02', '2014-01-11 01:50:02', 307700223, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-30 01:50:02.000000', 5, '2014-01-11 01:50:02', '2014-01-11 01:50:02', 190738503, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-29 01:50:02.000000', 6, '2014-01-11 01:50:02', '2014-01-11 01:50:02', 1012482256, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-28 01:50:02.000000', 7, '2014-01-11 01:50:02', '2014-01-11 01:50:02', 574477685, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-27 01:50:02.000000', 8, '2014-01-11 01:50:02', '2014-01-11 01:50:02', 356181480, 463626445, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-26 01:50:02.000000', 1, '2014-01-11 01:50:02', '2014-01-11 01:50:02', 204715104, 647910780, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-25 01:50:02.000000', 2, '2014-01-11 01:50:02', '2014-01-11 01:50:02', 993297609, 647910780, 194731895)
+  [1m[36mFixture Insert (0.1ms)[0m  [1mINSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-24 01:50:02.000000', 3, '2014-01-11 01:50:02', '2014-01-11 01:50:02', 730569050, 463626445, 128271312)[0m
+  [1m[35mFixture Insert (0.1ms)[0m  INSERT INTO "works" ("datetimeperformed", "hours", "created_at", "updated_at", "id", "project_id", "user_id") VALUES ('2013-12-23 01:50:02.000000', 4, '2014-01-11 01:50:02', '2014-01-11 01:50:02', 478980561, 647910780, 194731895)
+  [1m[36m (1.9ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  begin transaction
+-----------------------------------------------------
+ProjectsControllerTest: test_user_can't_view_projects
+-----------------------------------------------------
+Processing by ProjectsController#index as HTML
+Completed 401 Unauthorized in 15ms
+  Rendered text template (0.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 128271312]]
+Processing by ProjectsController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = 128271312 ORDER BY "users"."id" ASC LIMIT 1
+  [1m[36mProject Load (0.1ms)[0m  [1mSELECT "projects".* FROM "projects"[0m
+  [1m[35mCompany Load (0.3ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."id" = ? ORDER BY "companies"."id" ASC LIMIT 1  [["id", 673772394]]
+  [1m[36mCompany Load (0.1ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."id" = ? ORDER BY "companies"."id" ASC LIMIT 1[0m  [["id", 944384622]]
+  Rendered projects/_project.html.erb (53.9ms)
+  Rendered projects/_sidebar.html.erb (0.5ms)
+  Rendered projects/index.html.erb within layouts/application (71.9ms)
+Completed 200 OK in 93ms (Views: 88.4ms | ActiveRecord: 0.7ms)
+Processing by ProjectsController#index as HTML
+Completed 401 Unauthorized in 1ms
+  Rendered text template (0.0ms)
+  [1m[35m (0.1ms)[0m  rollback transaction
