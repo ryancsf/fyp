@@ -37295,3 +37295,207 @@ Processing by RailsAdmin::MainController#index as HTML
   [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "companies"[0m
   Rendered /home/ryancsf/.rvm/gems/ruby-2.0.0-p195/gems/rails_admin-0.6.6/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax (261.9ms)
 Completed 200 OK in 287ms (Views: 273.4ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/admin/project" for 127.0.0.1 at 2015-02-28 07:52:27 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by RailsAdmin::MainController#index as HTML
+  Parameters: {"model_name"=>"project"}
+  [1m[35mProject Load (0.3ms)[0m  SELECT "projects".* FROM "projects" ORDER BY projects.id desc LIMIT 20 OFFSET 0
+  [1m[36mCompany Load (0.3ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."id" IN (944384622, 673772394)[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (128271312)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "projects"[0m
+  Rendered /home/ryancsf/.rvm/gems/ruby-2.0.0-p195/gems/rails_admin-0.6.6/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/application (215.2ms)
+  Rendered /home/ryancsf/.rvm/gems/ruby-2.0.0-p195/gems/rails_admin-0.6.6/app/views/layouts/rails_admin/_secondary_navigation.html.haml (4.2ms)
+  Rendered /home/ryancsf/.rvm/gems/ruby-2.0.0-p195/gems/rails_admin-0.6.6/app/views/layouts/rails_admin/_navigation.html.haml (8.4ms)
+  Rendered /home/ryancsf/.rvm/gems/ruby-2.0.0-p195/gems/rails_admin-0.6.6/app/views/layouts/rails_admin/pjax.html.haml (9.8ms)
+Completed 200 OK in 898ms (Views: 633.6ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/assets/rails_admin/rails_admin.css?body=1" for 127.0.0.1 at 2015-02-28 07:52:28 +0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2015-02-28 07:52:28 +0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2015-02-28 07:52:28 +0800
+
+
+Started GET "/assets/jquery.iframe-transport.js?body=1" for 127.0.0.1 at 2015-02-28 07:52:28 +0800
+
+
+Started GET "/assets/rails_admin/jquery.remotipart.fixed.js?body=1" for 127.0.0.1 at 2015-02-28 07:52:28 +0800
+
+
+Started GET "/assets/jquery-ui/effect.js?body=1" for 127.0.0.1 at 2015-02-28 07:52:28 +0800
+
+
+Started GET "/assets/jquery-ui/core.js?body=1" for 127.0.0.1 at 2015-02-28 07:52:28 +0800
+
+
+Started GET "/assets/jquery-ui/widget.js?body=1" for 127.0.0.1 at 2015-02-28 07:52:28 +0800
+
+
+Started GET "/assets/jquery-ui/mouse.js?body=1" for 127.0.0.1 at 2015-02-28 07:52:28 +0800
+
+
+Started GET "/assets/jquery-ui/sortable.js?body=1" for 127.0.0.1 at 2015-02-28 07:52:28 +0800
+
+
+Started GET "/assets/jquery-ui/position.js?body=1" for 127.0.0.1 at 2015-02-28 07:52:28 +0800
+
+
+Started GET "/assets/jquery-ui/menu.js?body=1" for 127.0.0.1 at 2015-02-28 07:52:28 +0800
+
+
+Started GET "/assets/jquery-ui/autocomplete.js?body=1" for 127.0.0.1 at 2015-02-28 07:52:28 +0800
+
+
+Started GET "/assets/jquery-ui/datepicker.js?body=1" for 127.0.0.1 at 2015-02-28 07:52:28 +0800
+
+
+Started GET "/assets/rails_admin/jquery.ui.timepicker.js?body=1" for 127.0.0.1 at 2015-02-28 07:52:28 +0800
+
+
+Started GET "/assets/rails_admin/ra.datetimepicker.js?body=1" for 127.0.0.1 at 2015-02-28 07:52:28 +0800
+
+
+Started GET "/assets/rails_admin/jquery.colorpicker.js?body=1" for 127.0.0.1 at 2015-02-28 07:52:28 +0800
+
+
+Started GET "/assets/rails_admin/ra.filter-box.js?body=1" for 127.0.0.1 at 2015-02-28 07:52:28 +0800
+
+
+Started GET "/assets/rails_admin/ra.filtering-multiselect.js?body=1" for 127.0.0.1 at 2015-02-28 07:52:28 +0800
+
+
+Started GET "/assets/rails_admin/ra.filtering-select.js?body=1" for 127.0.0.1 at 2015-02-28 07:52:28 +0800
+
+
+Started GET "/assets/rails_admin/ra.remote-form.js?body=1" for 127.0.0.1 at 2015-02-28 07:52:28 +0800
+
+
+Started GET "/assets/rails_admin/jquery.pjax.js?body=1" for 127.0.0.1 at 2015-02-28 07:52:28 +0800
+
+
+Started GET "/assets/jquery_nested_form.js?body=1" for 127.0.0.1 at 2015-02-28 07:52:28 +0800
+
+
+Started GET "/assets/rails_admin/ra.nested-form-hooks.js?body=1" for 127.0.0.1 at 2015-02-28 07:52:28 +0800
+
+
+Started GET "/assets/rails_admin/ra.i18n.js?body=1" for 127.0.0.1 at 2015-02-28 07:52:28 +0800
+
+
+Started GET "/assets/rails_admin/bootstrap/bootstrap-transition.js?body=1" for 127.0.0.1 at 2015-02-28 07:52:28 +0800
+
+
+Started GET "/assets/rails_admin/bootstrap/bootstrap-affix.js?body=1" for 127.0.0.1 at 2015-02-28 07:52:28 +0800
+
+
+Started GET "/assets/rails_admin/bootstrap/bootstrap-alert.js?body=1" for 127.0.0.1 at 2015-02-28 07:52:28 +0800
+
+
+Started GET "/assets/rails_admin/bootstrap/bootstrap-button.js?body=1" for 127.0.0.1 at 2015-02-28 07:52:28 +0800
+
+
+Started GET "/assets/rails_admin/bootstrap/bootstrap-carousel.js?body=1" for 127.0.0.1 at 2015-02-28 07:52:28 +0800
+
+
+Started GET "/assets/rails_admin/bootstrap/bootstrap-collapse.js?body=1" for 127.0.0.1 at 2015-02-28 07:52:28 +0800
+
+
+Started GET "/assets/rails_admin/bootstrap/bootstrap-dropdown.js?body=1" for 127.0.0.1 at 2015-02-28 07:52:28 +0800
+
+
+Started GET "/assets/rails_admin/bootstrap/bootstrap-modal.js?body=1" for 127.0.0.1 at 2015-02-28 07:52:28 +0800
+
+
+Started GET "/assets/rails_admin/bootstrap/bootstrap-scrollspy.js?body=1" for 127.0.0.1 at 2015-02-28 07:52:29 +0800
+
+
+Started GET "/assets/rails_admin/bootstrap/bootstrap-tab.js?body=1" for 127.0.0.1 at 2015-02-28 07:52:29 +0800
+
+
+Started GET "/assets/rails_admin/bootstrap/bootstrap-tooltip.js?body=1" for 127.0.0.1 at 2015-02-28 07:52:29 +0800
+
+
+Started GET "/assets/rails_admin/bootstrap/bootstrap-popover.js?body=1" for 127.0.0.1 at 2015-02-28 07:52:29 +0800
+
+
+Started GET "/assets/rails_admin/bootstrap/bootstrap-typeahead.js?body=1" for 127.0.0.1 at 2015-02-28 07:52:29 +0800
+
+
+Started GET "/assets/rails_admin/bootstrap/bootstrap.js?body=1" for 127.0.0.1 at 2015-02-28 07:52:29 +0800
+
+
+Started GET "/assets/rails_admin/ra.widgets.js?body=1" for 127.0.0.1 at 2015-02-28 07:52:29 +0800
+
+
+Started GET "/assets/rails_admin/ui.js?body=1" for 127.0.0.1 at 2015-02-28 07:52:29 +0800
+
+
+Started GET "/assets/rails_admin/custom/ui.js?body=1" for 127.0.0.1 at 2015-02-28 07:52:29 +0800
+
+
+Started GET "/assets/rails_admin/rails_admin.js?body=1" for 127.0.0.1 at 2015-02-28 07:52:29 +0800
+
+
+Started GET "/assets/fontawesome-webfont.woff2?v=4.3.0" for 127.0.0.1 at 2015-02-28 07:52:29 +0800
+
+
+Started GET "/admin/work?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2015-02-28 07:53:50 +0800
+Processing by RailsAdmin::MainController#index as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"work"}
+  [1m[35mWork Load (0.4ms)[0m  SELECT "works".* FROM "works" ORDER BY works.id desc LIMIT 20 OFFSET 0
+  [1m[36mProject Load (0.3ms)[0m  [1mSELECT "projects".* FROM "projects" WHERE "projects"."id" IN (647910780, 463626445)[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" IN (194731895, 128271312)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "works"[0m
+  Rendered /home/ryancsf/.rvm/gems/ruby-2.0.0-p195/gems/rails_admin-0.6.6/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax (183.9ms)
+Completed 200 OK in 387ms (Views: 268.3ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/admin/company?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2015-02-28 07:54:22 +0800
+Processing by RailsAdmin::MainController#index as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"company"}
+  [1m[35mCompany Load (0.4ms)[0m  SELECT "companies".* FROM "companies" ORDER BY companies.id desc LIMIT 20 OFFSET 0
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."company_id" = ?[0m  [["company_id", 944384622]]
+  [1m[35mProject Load (0.4ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."company_id" = ?  [["company_id", 944384622]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."company_id" = ?[0m  [["company_id", 673772394]]
+  [1m[35mProject Load (0.2ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."company_id" = ?  [["company_id", 673772394]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."company_id" = ?[0m  [["company_id", 242211569]]
+  [1m[35mProject Load (0.1ms)[0m  SELECT "projects".* FROM "projects" WHERE "projects"."company_id" = ?  [["company_id", 242211569]]
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM "companies"[0m
+  Rendered /home/ryancsf/.rvm/gems/ruby-2.0.0-p195/gems/rails_admin-0.6.6/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax (90.4ms)
+Completed 200 OK in 112ms (Views: 98.4ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/admin/user?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2015-02-28 07:54:40 +0800
+Processing by RailsAdmin::MainController#index as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"user"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" ORDER BY users.id desc LIMIT 20 OFFSET 0
+  [1m[36mCompany Load (0.2ms)[0m  [1mSELECT "companies".* FROM "companies" WHERE "companies"."id" IN (673772394, 242211569)[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM "users"
+  Rendered /home/ryancsf/.rvm/gems/ruby-2.0.0-p195/gems/rails_admin-0.6.6/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax (59.8ms)
+Completed 200 OK in 161ms (Views: 143.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/admin/project?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2015-02-28 07:54:56 +0800
+Processing by RailsAdmin::MainController#index as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"project"}
+  [1m[36mProject Load (0.4ms)[0m  [1mSELECT "projects".* FROM "projects" ORDER BY projects.id desc LIMIT 20 OFFSET 0[0m
+  [1m[35mCompany Load (0.4ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."id" IN (944384622, 673772394)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" IN (128271312)[0m
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "projects"
+  Rendered /home/ryancsf/.rvm/gems/ruby-2.0.0-p195/gems/rails_admin-0.6.6/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax (60.1ms)
+Completed 200 OK in 81ms (Views: 71.9ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/admin/user?_pjax=%5Bdata-pjax-container%5D" for 127.0.0.1 at 2015-02-28 07:54:57 +0800
+Processing by RailsAdmin::MainController#index as HTML
+  Parameters: {"_pjax"=>"[data-pjax-container]", "model_name"=>"user"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" ORDER BY users.id desc LIMIT 20 OFFSET 0[0m
+  [1m[35mCompany Load (0.4ms)[0m  SELECT "companies".* FROM "companies" WHERE "companies"."id" IN (673772394, 242211569)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "users"[0m
+  Rendered /home/ryancsf/.rvm/gems/ruby-2.0.0-p195/gems/rails_admin-0.6.6/app/views/rails_admin/main/index.html.haml within layouts/rails_admin/pjax (63.2ms)
+Completed 200 OK in 80ms (Views: 72.8ms | ActiveRecord: 1.0ms)
